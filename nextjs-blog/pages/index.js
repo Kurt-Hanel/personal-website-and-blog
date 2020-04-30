@@ -2,47 +2,26 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout, { siteTitle } from "../components/layout";
 import Date from "../components/date";
-import { getSortedPostsData } from "../lib/posts";
 import utilStyles from "../styles/utils.module.css";
 
-export default function Home({ allPostsData }) {
+export default function Home() {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
         <p>
-          (This is a sample website - you’ll be building a site like this on{" "}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          Lorem ipsum dolor sit amet, ut eos vero ubique posidonium, scriptorem
+          efficiantur interpretaris an est, no duo error discere quaestio.
+          Tritani habemus propriae sed ut, an vel saperet pertinacia. Inermis
+          delectus hendrerit has ad, cum tale nusquam an, omnes virtute ne his.
+          Vis esse omnes mediocrem at, nobis corpora conclusionemque sed in. Et
+          mel quis accusamus consetetur, consetetur efficiantur ius an. Sea ut
+          alia nullam possim. Maiorum ocurreret persecuti te qui, quo ut nibh
+          omnis.
         </p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
       </section>
     </Layout>
   );
-}
-
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
 }

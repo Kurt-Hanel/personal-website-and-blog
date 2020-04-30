@@ -2,13 +2,15 @@ import Head from "next/head";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import Navbar from "./navbar";
 
 const name = "Your Name";
-export const siteTitle = "Next.js Sample Website";
+export const siteTitle = "Title | Your Name";
 
 export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
+      <Navbar></Navbar>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
