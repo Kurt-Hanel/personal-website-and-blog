@@ -10,7 +10,7 @@ export const siteTitle = "Title | Your Name";
 export default function Layout({ children, home }) {
   return (
     <>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
       <div className={styles.container}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
