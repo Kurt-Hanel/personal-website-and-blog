@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+}
+
+.li {
+  list-style-type: none;
+  margin: 0;
+  padding: 8px;
+  overflow: hidden;
+}
