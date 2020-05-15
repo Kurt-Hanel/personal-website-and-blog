@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import Navbar from "../components/navbar";
 import "../styles/global.css";
 import "semantic-ui-css/semantic.min.css";
 import App from "next/app";
-
-const Layout = ({ children }) => <div className="layout">{children}</div>;
+import { Sticky } from "semantic-ui-react";
 
 export default class MyApp extends App {
+  contextRef = createRef();
+
   constructor(props) {
     super(props);
     this.state = { activeNavbarItem: "Home" };
@@ -23,13 +24,15 @@ export default class MyApp extends App {
     const { activeNavbarItem } = this.state;
 
     return (
-      <Layout>
-        <Navbar
-          activeItem={activeNavbarItem}
-          onNavbarChange={this.handleNavbarChange}
-        ></Navbar>
+      <div ref={this.contextRef}>
+        <Sticky context={this.contextRef}>
+          <Navbar
+            activeItem={activeNavbarItem}
+            onNavbarChange={this.handleNavbarChange}
+          ></Navbar>
+        </Sticky>
         <Component {...pageProps} />
-      </Layout>
+      </div>
     );
   }
 }
